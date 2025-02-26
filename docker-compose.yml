@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  yourgroupnumber_php:
+    build: .
+    ports:
+      - "8080:80"
+    depends_on:
+      - yourgroupnumber_db
+  yourgroupnumber_db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: yourgroupnumber_shareride_db
+    ports:
+      - "3306:3306"
